@@ -1,13 +1,11 @@
-name: Build Extension
+name: Build Safari Extension
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest  # Required for Safari conversion
     steps:
       - uses: actions/checkout@v4
-      - uses: CarloTM/bepp@v1
+      - uses: bitwarden/safari-web-extension-converter@v1
         with:
-          chrome: false    # Skip Chrome (focus on Safari)
-          firefox: false   # Skip Firefox
-          safari: true     # Build for Safari
-          xcode: false     # Disable Xcode (for now)
+          project-root: "."  # Path to your extension (root folder)
+          xcode-project-scheme: "FlexRizz (macOS)"  # Optional
