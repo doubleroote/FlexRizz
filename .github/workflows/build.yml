@@ -1,0 +1,13 @@
+name: Build Extension
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: CarloTM/bepp@v1
+        with:
+          chrome: false    # Skip Chrome (focus on Safari)
+          firefox: false   # Skip Firefox
+          safari: true     # Build for Safari
+          xcode: false     # Disable Xcode (for now)
